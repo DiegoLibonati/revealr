@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 
-import { mockQuestions } from "@tests/__mocks__/questions.mock";
-
 import QuestionsPage from "@/pages/QuestionsPage/QuestionsPage";
+
+import { mockQuestions } from "@tests/__mocks__/questions.mock";
 
 type RenderPage = {
   container: HTMLElement;
@@ -14,6 +14,10 @@ const renderPage = (): RenderPage => {
 };
 
 describe("QuestionsPage", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render a main element", () => {
     const { container } = renderPage();
     expect(container.querySelector<HTMLElement>("main")).toBeInTheDocument();

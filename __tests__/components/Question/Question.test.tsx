@@ -6,6 +6,7 @@ import type { QuestionProps } from "@/types/props";
 import Question from "@/components/Question/Question";
 
 type RenderComponent = {
+  container: HTMLElement;
   props: QuestionProps;
 };
 
@@ -16,12 +17,16 @@ const renderComponent = (overrides?: Partial<QuestionProps>): RenderComponent =>
     ...overrides,
   };
 
-  render(<Question {...props} />);
+  const { container } = render(<Question {...props} />);
 
-  return { props };
+  return { container, props };
 };
 
 describe("Question", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render the question title", () => {
     renderComponent();
     expect(screen.getByText("Do I have to allow the use of cookies?")).toBeInTheDocument();
