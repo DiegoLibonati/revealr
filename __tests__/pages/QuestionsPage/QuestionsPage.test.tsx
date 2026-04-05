@@ -4,9 +4,9 @@ import QuestionsPage from "@/pages/QuestionsPage/QuestionsPage";
 
 import { mockQuestions } from "@tests/__mocks__/questions.mock";
 
-type RenderPage = {
+interface RenderPage {
   container: HTMLElement;
-};
+}
 
 const renderPage = (): RenderPage => {
   const { container } = render(<QuestionsPage />);

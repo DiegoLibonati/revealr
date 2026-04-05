@@ -1,10 +1,11 @@
 import { useId, useState } from "react";
 import { BsPlusCircle, BsPatchMinus } from "react-icons/bs";
 
-import { QuestionProps } from "@/types/props";
+import type { JSX } from "react";
+import type { QuestionProps } from "@/types/props";
 
-const Question = ({ title, info }: QuestionProps) => {
-  const [showDescription, setShowDescription] = useState<boolean>(false);
+const Question = ({ title, info }: QuestionProps): JSX.Element => {
+  const [showDescription, setShowDescription] = useState(false);
   const descriptionId = useId();
 
   const handleShowInformation: React.MouseEventHandler<HTMLButtonElement> = () => {

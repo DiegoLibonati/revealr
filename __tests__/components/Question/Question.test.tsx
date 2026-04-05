@@ -5,10 +5,10 @@ import type { QuestionProps } from "@/types/props";
 
 import Question from "@/components/Question/Question";
 
-type RenderComponent = {
+interface RenderComponent {
   container: HTMLElement;
   props: QuestionProps;
-};
+}
 
 const renderComponent = (overrides?: Partial<QuestionProps>): RenderComponent => {
   const props: QuestionProps = {

@@ -53,6 +53,7 @@ I made a web application with react js that simulates a section of a page, it wo
 "autoprefixer": "^10.4.16"
 "eslint": "^9.0.0"
 "eslint-config-prettier": "^9.0.0"
+"eslint-plugin-prettier": "^5.5.5"
 "eslint-plugin-react-hooks": "^5.0.0"
 "eslint-plugin-react-refresh": "^0.4.0"
 "globals": "^15.0.0"

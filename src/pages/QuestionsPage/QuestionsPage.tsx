@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import { Question as QuestionT } from "@/types/app";
+import type { JSX } from "react";
 
 import Question from "@/components/Question/Question";
 
 import questionsData from "@/constants/questions";
 
-const QuestionsPage = () => {
-  const [questions] = useState<QuestionT[]>(questionsData);
+const QuestionsPage = (): JSX.Element => {
+  const [questions] = useState(questionsData);
 
   return (
     <main className="w-screen h-screen bg-secondary">

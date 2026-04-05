@@ -1,4 +1,4 @@
-import { Question } from "@/types/app";
+import type { Question } from "@/types/app";
 
 const questions: Question[] = [
   {
