@@ -1,4 +1,4 @@
-# Accordion React
+# Revealr
 
 ## Educational Purpose
 
@@ -17,7 +17,15 @@ The application will open automatically at `http://localhost:3000`
 
 ## Description
 
-I made a web application with react js that simulates a section of a page, it would be a section of frequently asked questions where they would touch a button to get more information about the question they want to see.
+**Revealr** is a lightweight FAQ accordion web application built with React and TypeScript. It presents a list of frequently asked questions where each item is collapsed by default, showing only the question title. Users can click a toggle button on any question to expand it and reveal the full answer, then click again to collapse it. Only the content the user explicitly requests is shown at any given time, keeping the interface clean and focused.
+
+The application is fully accessible: every toggle button exposes `aria-expanded`, `aria-controls`, and a descriptive `aria-label` that updates dynamically based on whether the answer is open or closed. The expanded answer panel is marked as a `region` and linked back to its title via `aria-labelledby`, making it navigable by screen readers.
+
+The data layer is intentionally simple — questions are loaded from a static constants file into local component state, with no external API calls or global state management. This makes the project easy to extend: swapping the static data for a real API endpoint or adding new questions requires minimal changes.
+
+Styling is handled entirely with TailwindCSS utility classes, using a custom color palette (`primary: #EB5A3C`, `secondary: #DF9755`) for a consistent visual identity. The layout is responsive out of the box, adapting from full width on mobile to a centered 50% column on wider screens.
+
+The codebase follows strict TypeScript configuration with no implicit any, unused variable errors, and path aliases (`@/` for `src/`) to keep imports clean across the project. Code quality is enforced automatically on every commit through Husky pre-commit hooks that run ESLint with auto-fix and Prettier formatting via lint-staged. The test suite uses Jest with Testing Library and covers rendering, toggle behavior, and accessibility attributes, with a minimum coverage threshold of 70%.
 
 ## Technologies used
 
@@ -72,11 +80,7 @@ I made a web application with react js that simulates a section of a page, it wo
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/Accordion-React`](https://www.diegolibonati.com.ar/#/project/Accordion-React)
-
-## Video
-
-https://github.com/DiegoLibonati/Accordion-App-Page/assets/99032604/d09a3459-fa73-4f79-bea9-ef6ea4f6dcf2
+[`https://www.diegolibonati.com.ar/#/project/revealr`](https://www.diegolibonati.com.ar/#/project/revealr)
 
 ## Testing
 

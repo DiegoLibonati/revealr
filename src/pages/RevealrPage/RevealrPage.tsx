@@ -6,7 +6,7 @@ import Question from "@/components/Question/Question";
 
 import questionsData from "@/constants/questions";
 
-const QuestionsPage = (): JSX.Element => {
+const RevealrPage = (): JSX.Element => {
   const [questions] = useState(questionsData);
 
   return (
@@ -22,4 +22,4 @@ const QuestionsPage = (): JSX.Element => {
   );
 };
 
-export default QuestionsPage;
+export default RevealrPage;

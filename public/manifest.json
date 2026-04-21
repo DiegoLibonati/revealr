@@ -1,7 +1,7 @@
 {
-  "name": "Accordion React",
-  "short_name": "Accordion",
-  "description": "I made a web application with react js that simulates a section of a page, it would be a section of frequently asked questions where they would touch a button to get more information about the question they want to see.",
+  "name": "Revealr",
+  "short_name": "Revealr",
+  "description": "Revealr is a lightweight FAQ accordion web application built with React and TypeScript. It presents a list of frequently asked questions where each item is collapsed by default, showing only the question title. Users can click a toggle button on any question to expand it and reveal the full answer, then click again to collapse it. Only the content the user explicitly requests is shown at any given time, keeping the interface clean and focused.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

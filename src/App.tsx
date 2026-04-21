@@ -1,9 +1,9 @@
 import type { JSX } from "react";
 
-import QuestionsPage from "@/pages/QuestionsPage/QuestionsPage";
+import RevealrPage from "@/pages/RevealrPage/RevealrPage";
 
 function App(): JSX.Element {
-  return <QuestionsPage></QuestionsPage>;
+  return <RevealrPage></RevealrPage>;
 }
 
 export default App;
