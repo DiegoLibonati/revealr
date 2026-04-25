@@ -86,7 +86,7 @@ describe("Question", () => {
       const user = userEvent.setup();
       renderComponent();
       await user.click(screen.getByRole("button", { name: /Abrir respuesta:/i }));
-      expect(screen.getByRole("region")).toHaveAttribute("aria-labelledby");
+      expect(screen.getByRole("region", { name: "What is React?" })).toBeInTheDocument();
     });
   });
 });

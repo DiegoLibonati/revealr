@@ -23,7 +23,7 @@ describe("RevealrPage", () => {
   describe("rendering", () => {
     it("should render all questions from the data source", () => {
       renderPage();
-      expect(screen.getAllByTestId("question")).toHaveLength(mockQuestions.length);
+      expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(mockQuestions.length);
     });
 
     it("should render each question title", () => {
