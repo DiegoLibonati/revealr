@@ -6,15 +6,6 @@ This project was created primarily for **educational and learning purposes**.
 While it is well-structured and could technically be used in production, it is **not intended for commercialization**.  
 The main goal is to explore and demonstrate best practices, patterns, and technologies in software development.
 
-## Getting Started
-
-1. Clone the repository
-2. Navigate to the project folder
-3. Execute: `npm install`
-4. Execute: `npm run dev`
-
-The application will open automatically at `http://localhost:3000`
-
 ## Description
 
 **Revealr** is a lightweight FAQ accordion web application built with React and TypeScript. It presents a list of frequently asked questions where each item is collapsed by default, showing only the question title. Users can click a toggle button on any question to expand it and reveal the full answer, then click again to collapse it. Only the content the user explicitly requests is shown at any given time, keeping the interface clean and focused.
@@ -29,6 +20,8 @@ The codebase follows strict TypeScript configuration with no implicit any, unuse
 
 ## Technologies used
 
+The application is built on top of the following stack:
+
 1. React JS
 2. TypeScript
 3. Vite
@@ -37,6 +30,8 @@ The codebase follows strict TypeScript configuration with no implicit any, unuse
 6. CSS3
 
 ## Libraries used
+
+The project relies on the following packages, split between runtime dependencies and development tooling:
 
 #### Dependencies
 
@@ -78,11 +73,20 @@ The codebase follows strict TypeScript configuration with no implicit any, unuse
 "vite": "^7.1.6"
 ```
 
-## Portfolio Link
+## Getting Started
 
-[`https://www.diegolibonati.com.ar/#/project/revealr`](https://www.diegolibonati.com.ar/#/project/revealr)
+With the stack and dependencies in mind, follow these steps to run the project locally:
+
+1. Clone the repository
+2. Navigate to the project folder
+3. Execute: `npm install`
+4. Execute: `npm run dev`
+
+The application will open automatically at `http://localhost:3000`.
 
 ## Testing
+
+Once the project runs locally, you can verify behavior with the test suite.
 
 1. Navigate to the project folder
 2. Execute: `npm test`
@@ -93,7 +97,9 @@ For coverage report:
 npm run test:coverage
 ```
 
-## Security
+## Security Audit
+
+Beyond functional testing, the project ships with tooling to audit dependencies and overall code health.
 
 ### npm audit
 
@@ -120,3 +126,7 @@ npm run doctor -- --verbose
 ## Known Issues
 
 None at the moment.
+
+## Portfolio Link
+
+[`https://www.diegolibonati.com.ar/#/project/revealr`](https://www.diegolibonati.com.ar/#/project/revealr)
