@@ -100,6 +100,52 @@ For coverage report:
 npm run test:coverage
 ```
 
+## Continuous Integration
+
+The repository ships with a **GitHub Actions** pipeline defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml). It runs automatically on every `push` and `pull_request` targeting the `main` branch, executing three sequential jobs on `ubuntu-latest`.
+
+### Pipeline overview
+
+```
+                ┌─── PR or push to main ───┐
+                ▼                          ▼
+┌──────────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│    lint-and-audit    │─▶│      testing     │─▶│       build      │
+│  eslint · tsc check  │  │   jest (jsdom)   │  │  tsc · vite build│
+└──────────────────────┘  └──────────────────┘  └──────────────────┘
+```
+
+Every job checks out the repo, sets up Node using the version pinned in [`.nvmrc`](.nvmrc), restores the npm cache, and runs `npm ci` before executing its task. Downstream jobs run only if the previous job succeeds, so a lint failure short-circuits the pipeline before tests or the build run.
+
+### Validation jobs (run on every PR and push)
+
+1. **`lint-and-audit`** — `npm run lint` (ESLint over `src`) followed by `npm run type-check` (`tsc -p tsconfig.app.json --noEmit`). Fails the pipeline on any lint error or type error.
+2. **`testing`** — `npm run test`, which runs the full Jest suite in `jsdom` with `ts-jest` and `@testing-library/react`. Depends on `lint-and-audit`.
+3. **`build`** — `npm run build`, a production Vite build preceded by a project-wide TypeScript compilation. Verifies the app can be bundled for deployment. Depends on `testing`.
+
+### Where the build outputs live
+
+| Output                                           | Location                                                   |
+| ------------------------------------------------ | ---------------------------------------------------------- |
+| Validation logs (lint, type-check, tests, build) | **Actions** tab on GitHub                                  |
+| Production bundle                                | Ephemeral, inside the runner (not uploaded as an artifact) |
+
+> **Note:** the current pipeline is validation-only — it does not publish releases, tag versions, or upload build artifacts. Deployments are handled outside of CI.
+
+### Running the same checks locally
+
+```bash
+# lint-and-audit
+npm run lint
+npm run type-check
+
+# testing
+npm run test
+
+# build
+npm run build
+```
+
 ## Security Audit
 
 Beyond functional testing, the project ships with tooling to audit dependencies and overall code health.
@@ -125,14 +171,6 @@ Use `--verbose` to see specific files and line numbers:
 ```bash
 npm run doctor -- --verbose
 ```
-
-## CI/CD
-
-The project ships with a GitHub Actions pipeline (`.github/workflows/ci.yml`) that runs on every push and pull request to `main`. The pipeline runs three sequential jobs:
-
-1. **Lint & Audit** — ESLint + TypeScript type-check
-2. **Testing** — full Jest test suite
-3. **Build** — production Vite build
 
 ## Known Issues
 
