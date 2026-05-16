@@ -78,6 +78,8 @@ The project relies on the following packages, split between runtime dependencies
 
 With the stack and dependencies in mind, follow these steps to run the project locally:
 
+> **Requires Node.js >= 22.** Use [nvm](https://github.com/nvm-sh/nvm) and run `nvm use` to switch to the pinned version automatically.
+
 1. Clone the repository
 2. Navigate to the project folder
 3. Execute: `npm install`
@@ -123,6 +125,14 @@ Use `--verbose` to see specific files and line numbers:
 ```bash
 npm run doctor -- --verbose
 ```
+
+## CI/CD
+
+The project ships with a GitHub Actions pipeline (`.github/workflows/ci.yml`) that runs on every push and pull request to `main`. The pipeline runs three sequential jobs:
+
+1. **Lint & Audit** — ESLint + TypeScript type-check
+2. **Testing** — full Jest test suite
+3. **Build** — production Vite build
 
 ## Known Issues
 
